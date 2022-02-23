@@ -18,6 +18,7 @@ class CreateReservationsTable extends Migration
             $table->time('patient_time');
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('doc_id');
+            $table->unique(['appointment_id', 'patient_time','doc_id']);
             $table->foreign('appointment_id')->references('id')->on('appointments');
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->foreign('doc_id')->references('id')->on('doctors');

@@ -17,6 +17,7 @@ class CreateOffersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('doc_id');
             $table->string('name');
+            $table->unique(['doc_id', 'name']);
             $table->float('discount');
             $table->foreign('doc_id')->references('id')->on('doctors');
         });
