@@ -19,6 +19,7 @@ class CreateAdminsTable extends Migration
             $table->string('password');
             $table->timestamps();
         });
+        //seeder
         $admin = new Admin();
         $admin->username = "admin";
         $admin->password = "123";

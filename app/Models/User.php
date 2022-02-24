@@ -18,8 +18,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
+        'username',
+        'fname',
+        'lname',
+        'gender',
         'password',
     ];
 
@@ -32,6 +34,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    
 
     /**
      * The attributes that should be cast.
@@ -41,4 +44,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function phones()
+    {
+        return $this->hasMany(User_phone::class);
+    }
+
+    public function patient()
+    {
+        return $this->hasOne(Patient::class);
+    }
+    public function doctor()
+    {
+        return $this->hasOne(Doctor::class);
+    }
+
 }
